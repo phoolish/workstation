@@ -1,0 +1,11 @@
+# Setup bashrc folder
+- name: install packages
+  package:
+    name:
+      - jq
+      - gnome-tweaks
+      - zlib1g-dev
+      - slack-desktop
+      - myrepos
+    state: latest
+  become: true

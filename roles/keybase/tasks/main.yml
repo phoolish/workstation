@@ -1,0 +1,4 @@
+- name: install keybase 
+  apt:
+    deb: https://prerelease.keybase.io/keybase_amd64.deb
+  become: yes

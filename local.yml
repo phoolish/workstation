@@ -1,0 +1,46 @@
+---
+- hosts: local
+  roles:
+    - common
+    - keybase
+    - role: markosamuli.asdf
+      asdf_init_shell: true
+      asdf_plugins:
+        - name: 1password
+          global: "1.0.0"
+          versions:
+           - "1.0.0"
+        - name: eksctl
+        - name: gcloud
+        - name: github-cli
+          global: "0.9.0"
+          versions:
+           - "0.9.0"
+        - name: helm
+        - name: kubectl
+        - name: kubectx
+        - name: kubeseal
+        - name: python
+        - name: ruby
+        - name: terraform
+        - name: yq
+          global: "3.3.0"
+          versions:
+            - "3.3.0"
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ ansible_user_id }}"
+          visual_studio_code_extensions:
+            - streetsidesoftware.code-spell-checker
+            - aws-scripting-guy.cform
+            - ms-azuretools.vscode-docker
+            - mikestead.dotenv
+            - riey.erb
+            - ms-vscode.vscode-typescript-next
+            - ms-kubernetes-tools.vscode-kubernetes-tools
+            - ms-python.python
+            - hashicorp.terraform 
+          visual_studio_code_settings_overwrite: yes
+          visual_studio_code_settings: {
+            "files.autoSave": "onFocusChange"
+          }
